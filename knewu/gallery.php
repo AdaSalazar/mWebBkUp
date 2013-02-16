@@ -17,12 +17,15 @@
 <body>
 	
 <!-- Places the images on top-->
-	<?php require 'cms/banner.php'?>
+
 	<div id="wrapper">
 		<?php require 'cms/sesionStarter.php'?>
 		<div id="content">
 
-			<p>asdf
+			<p>Content 
+				<br>
+				<br>
+				text
 				<br>
 				<br>
 				<br>
@@ -32,45 +35,8 @@
 				<br>
 				<br>
 				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				
+				
 				<br>
 				end
 			</p>

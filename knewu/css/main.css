@@ -336,7 +336,7 @@ nav ul {
 		
 		nav ul li a {
 			display: block; 
-			padding: 25px 40px;
+			padding: 15px 30px;
 			font-weight:bold;
 			color: black; 
 			text-shadow: #5A5A5A 1px 1px 2px;
@@ -369,7 +369,7 @@ nav ul {
 			position: relative;
 		}
 			nav ul ul li a {
-				padding: 15px 40px;
+				padding: 15px 30px;
 				color: #fff;
 			}	
 				nav ul ul li a:hover {
@@ -382,7 +382,7 @@ nav ul {
 
 
 
-.selectedX{
+.selected{
 	/**/background-image: url('../Images/MenuStar.png');
 	background-position: 90% center;
 	background-repeat:no-repeat;
@@ -393,82 +393,6 @@ nav ul {
 	border-radius: 5px;
 	
 	
-}
-.selected{
-	padding: .5em 0em .5em 0em;
-	/**/background-image: url('../Images/MenuStar.png');
-	background-position: 90% top;
-	background-repeat:no-repeat;
-	position: relative;
-	display:inline; 
-	float: left;
-	width: 15%;
-	text-align:center;
-	text-decoration: none;
-	font-weight: bold;
-	font-size:110%;
-	color:black;
-	border: 1.5px  dash #d98db4;
-	border-radius: 5px;
-	
-	
-}
-.noSelected li a{
-	padding: .5em 0em .8em 0em;
-	display:inline; 
-	float: left;
-	width: 17%;
-	text-align:center;
-	text-decoration: none;
-	font-weight: bold;
-	font-size:110%;
-	color:black;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#selected a{
-	padding: .5em 0em .5em 0em;/**/
-	/**/background-image: url('../Images/MenuStar.png');
-	background-position: 90% top;
-	background-repeat:no-repeat;
-	position: relative;
-	display:inline; 
-	float: left;
-	width: 15%;
-	text-align:center;
-	text-decoration: none;
-	font-weight: bold;
-	font-size:110%;
-	color:black;
-	border: 1.5px  dash #d98db4;
-	border-radius: 5px;
-	
-	
-}
-#noSelected a{
-	padding: .5em 0em .8em 0em;
-	display:inline; 
-	float: left;
-	width: 17%;
-	text-align:center;
-	text-decoration: none;
-	font-weight: bold;
-	font-size:110%;
-	color:black;
 }
 
 #sForm{
