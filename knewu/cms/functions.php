@@ -95,9 +95,8 @@
 			//echo "<p>Database exists</p>" . mysql_error();
 		}
 	}
-	//databaseCreator();
 	
-	function menuCreator(){
+	function menuCreator($path){
 		//Top menu labels
 					$topMenuLabels = array("Home","MakeUp Basics","Gallery","Tutorials");
 					//Top menu links (html files names)
@@ -145,28 +144,28 @@
 					
 					switch ($topMenu) {
 						case 0:
-							echo '<a href="'.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a></li>';
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a></li>';
 							break;
 						case 1:
-							echo '<a href="'.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a>
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a>
 								<ul>';
 							$mbDropdownLabelsSize =count($mbDropdownLabels) - 1;
 							//This is depending on how many links has the first drop down menu
 							for ($dropDown1=0; $dropDown1<=$mbDropdownLabelsSize; $dropDown1++){
-								echo '<li><a href="'.$htmlFile[$topMenu].'.php#'.$mbDropdown[$dropDown1].'">'.$mbDropdownLabels[$dropDown1].'</a>
+								echo '<li><a href="'.$path.$htmlFile[$topMenu].'.php#'.$mbDropdown[$dropDown1].'">'.$mbDropdownLabels[$dropDown1].'</a>
 										<ul>';
 								
 								switch ($dropDown1) {
 									case 0:
 										$brushDdSize =count($brushDd) - 1;
 										for ($dropDown2=0; $dropDown2<=$brushDdSize; $dropDown2++){
-											echo '<li><a href="'.$htmlFile[$topMenu].'.php#brush'.$brushDd[$dropDown2].'">'.$brushDd[$dropDown2].'</a></li>';
+											echo '<li><a href="'.$path.$htmlFile[$topMenu].'.php#brush'.$brushDd[$dropDown2].'">'.$brushDd[$dropDown2].'</a></li>';
 										}
 										break;
 									case 1:
 										$prodDdSize =count($prodDd) - 1;
 										for ($dropDown2=0; $dropDown2<=$prodDdSize; $dropDown2++){
-											echo '<li><a href="'.$htmlFile[$topMenu].'.php#prod'.$prodDd[$dropDown2].'">'.$prodDd[$dropDown2].'</a></li>';
+											echo '<li><a href="'.$path.$htmlFile[$topMenu].'.php#prod'.$prodDd[$dropDown2].'">'.$prodDd[$dropDown2].'</a></li>';
 										}
 										break;
 								}
@@ -177,10 +176,10 @@
 							</li>';
 							break;
 						case 2:
-							echo '<a href="'.$htmlFile[$topMenu].'.php?adminEntryVerified">'.$topMenuLabels[$topMenu].'</a></li>';
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php?adminEntryVerified">'.$topMenuLabels[$topMenu].'</a></li>';
 							break;
 						case 3:
-							echo '<a href="'.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a>
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a>
 								<ul>';
 									
 							$tutDropdownLabelsSize =count($tutDropdownLabels) - 1;
@@ -193,13 +192,13 @@
 									case 0:
 										$vidTutLabelsSize =count($vidTutLabels) - 1;							
 										for ($dropDown2=0; $dropDown2<=$vidTutLabelsSize; $dropDown2++){
-											echo '<li><a href="'.$htmlFile[$topMenu].'.php#pic'.$vidTutDropdown[$dropDown2].'">'.$vidTutLabels[$dropDown2].'</a></li>';
+											echo '<li><a href="'.$path.$htmlFile[$topMenu].'.php#pic'.$vidTutDropdown[$dropDown2].'">'.$vidTutLabels[$dropDown2].'</a></li>';
 										}
 										break;
 									case 1:
 										$vidTutDropdownSize =count($vidTutDropdown) - 1;
 										for ($dropDown2=0; $dropDown2<=$vidTutDropdownSize; $dropDown2++){
-											echo '<li><a href="'.$htmlFile[$topMenu].'.php#vid'.$vidTutDropdown[$dropDown2].'">'.$vidTutLabels[$dropDown2].'</a></li>';
+											echo '<li><a href="'.$path.$htmlFile[$topMenu].'.php#vid'.$vidTutDropdown[$dropDown2].'">'.$vidTutLabels[$dropDown2].'</a></li>';
 										}
 										break;
 								}
@@ -215,8 +214,8 @@
 						 <!-- This is the search engine miniform-->
 						<div id="searchForm">
 						   <form action="../cms/search.php" method="GET">
-								  <input type="text" size="15" name="search" class="searchBox">
-								 <input type="submit" name="submit" value="Search" class="searchButton">
+								  <input type="text" size="15" name="search" class="box">
+								 <input type="submit" name="submit" value="Search" class="button">
 						   </form>
 						</div>
 				   </ul>
@@ -224,4 +223,35 @@
 					';
 	}
 	
+	function loginBanner($path){
+		echo'<div id="right">
+			<img src="'.$path.'images/banner+logo.png" alt="Right brush image not available" align="left">
+			
+				<a href="http://www.youtube.com/"><img src="'.$path.'images/youtube.png" height="25px" width="25px" ></a>
+				<a href="https://twitter.com/"><img src="'.$path.'images/twitter.png" height="25px" width="25px" ></a>
+				<a href="http://www.flickr.com/"><img src="'.$path.'images/flickr.png" height="25px" width="25px" ></a>
+				<a href="https://www.facebook.com/"><img src="'.$path.'images/fb.png" height="25px" width="25px" ></a>	
+			';
+			//Sessions
+			//session_start(); 
+			//session_destroy();
+			if(isset($_SESSION['username'])){
+				//$sessionName = $_SESSION['username'];//This line is used for the cart.php
+				echo '<p class="login" >Welcome '.$_SESSION['username'].'!!  <br/><a href="'.$path.'users/">Go to My Page</a><br/>';
+				echo '<sub> <small>Not '.$_SESSION['username'].'?? <br/>Please <a href="'.$path.'users/logout.php">Logout</a></sub></small></p>
+				';
+			}else{
+				//$sessionName = "Guest";
+				echo '
+				<form action="'.$path.'users/login.php" method="POST">
+					<small>Username:	<input type="text" size="10" name="usernameF" class="box" /><br/>
+					Password:	<input type="password" size="10" name="password" class="box"/><br/>
+					<input type="submit" value="Log in" class="button"></small>
+				</form> 
+				';	
+			}
+				
+		echo'</div>';
+	}
+
 ?>

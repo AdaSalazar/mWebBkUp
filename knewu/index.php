@@ -1,4 +1,7 @@
-
+<?php 
+	$path="";
+	require $path.'cms/sessionStarter.php';	
+?>
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -18,8 +21,14 @@
 <body>
 	<div id="wrapper">
 	<!-- Places the images on top-->
-		<?php require 'cms/sesionStarter.php'?>
-	
+		<?php 
+			require $path.'cms/functions.php';	
+			databaseCreator();			
+			loginBanner($path);
+		?>
+		<div id="menu">
+			<?php menuCreator($path); ?>
+		</div>	
 		<div id="content">
 		
 		
@@ -85,15 +94,16 @@
 			</p>
 		</div><!--content-->
 	</div><!--wrapper-->
-	
-	<br>
+
 	<br>
 	<div id="footer">	
-		<p><a>&copy; Ada Salazar 2011 - Present</a>
-		&nbsp;|&nbsp;
-		<a href="disclaimer.html"> Disclaimer</a>
-		&nbsp;|&nbsp;
-		<a href="#topOfPage">Top of page</a></p>
+		<p>
+			<a>&copy; Ada Salazar 2013 - Present</a>
+			&nbsp;|&nbsp;
+			<a href="disclaimer.php"> Disclaimer</a>
+			&nbsp;|&nbsp;
+			<a href="#topOfPage">Top of page</a>
+		</p>
 	</div><!--footer-->
 </body>
 

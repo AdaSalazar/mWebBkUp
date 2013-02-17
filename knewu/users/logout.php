@@ -1,28 +1,25 @@
 <?php 
-	$path="";
+	$path="../";
 	require $path.'cms/sessionStarter.php';	
 ?>
-<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN"
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 	<meta http-equiv="Default-Style" content="Main">
-	<title>Gallery - kNewU</title>
+	<title>Log Out</title>
 	<!--This part does the styles switcher-->
 	<link rel="stylesheet" type="text/css" title="Main" 
-	href="css/main.css">
+	href="../css/main.css">
 	<link rel="alternate stylesheet" type="text/css" title="High Contrast" 
-	href="css/highContrast.css">
-	<script type="text/javascript" src="../files/javascripts/styleswitcher.js"></script>
+	href="../css/highContrast.css">
+	<script type="text/javascript" src="../javascripts/styleswitcher.js"></script>
 </head>
 
 <body>
-	
-<!-- Places the images on top-->
-
-	<div id="wrapper">
+	<div id="wrapper">	
 		<?php 
 			require $path.'cms/functions.php';	
 			databaseCreator();			
@@ -30,28 +27,22 @@
 		?>
 		<div id="menu">
 			<?php menuCreator($path); ?>
-		</div>
-		<div id="content">
+		</div>		
+		<center><h1>Loging Out</h1></center>
 
-			<p>Content 
-				<br>
-				<br>
-				text
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				
-				
-				<br>
-				end
-			</p>
-		</div><!--content-->
+		<div id="tabContent">
+			<?php
+				session_destroy();
+				echo '<p>You have been logged out. <br/> You are going to be redirected to the Homepage.</p>';
+				header( 'refresh:4;url='.$path.'index.php' );
+			?>
+					
+		
+		</div><!--tabContent-->
+		
+		
+		
+		
 	</div><!--wrapper-->
 	
 	<br>

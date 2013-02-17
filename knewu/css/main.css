@@ -1,6 +1,6 @@
 h1{
 	font-family: "Century Schoolbook", cursive, sans-serif;
-	color: #3300CC;
+	color: #000000;
 	font-size: 150%;	
 	margin: 0;
 	padding: 0 0 1em 0;
@@ -8,8 +8,14 @@ h1{
 
 h2{
 	font-family: "Century Schoolbook", cursive, sans-serif;
-	color: #660066;
+	color: #000000;
 	font-size: 130%;
+}
+
+h3{
+	font-family: "Century Schoolbook", cursive, sans-serif;
+	color: #000000;
+	font-size: 100%;
 }
 
 body{
@@ -27,7 +33,7 @@ p {
 
 #wrapper {
 
-	min-width: 730px;
+	min-width: 750px;
 	position: relative;
 	text-align: left;
 	width: 85%;
@@ -76,7 +82,7 @@ p {
 	border: blue;
 	background: #F2A4CE;
 }
-.searchButton{
+.button{
 	border-radius: 10px;
 padding:.2em .3em .2em .3em ;
 	background-image: linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
@@ -96,7 +102,7 @@ padding:.2em .3em .2em .3em ;
 
 
 }
-.searchBox{
+.box{
 	border-radius: 10px;
 }
 #right{
@@ -238,6 +244,48 @@ nav ul {
 	padding: 1em;
 }
 
+/*user menu*/ 
+	/*selected*/
+#sel a{
+	font-weight: bold;
+}
+	/*Non selected*/
+#nonsel a{
+	text-decoration: none;
+}
+.subMenu{
+	width: 50%;
+    margin: 0px auto; /*this centers the div*/
+	font-size:80%;
+	clear:both;
+}
+.subMenu ul{
+    margin: 0; padding: 0;
+	border-radius: 5px; 
+    float: left;
+	border: solid;
+	border-width: 2px 2px 2px 2px;
+    background-color: #F6BADA;
+}
+ 
+.subMenu ul li{
+    display: inline;}
+ 
+.subMenu ul li a{
+    float: left;
+    color: black; 
+    padding: .7em .5em .7em .5em;
+}
+ 
+.subMenu ul li a:visited{
+    color: black;
+}
+ 
+.subMenu ul li a:hover, .subMenu ul li .current{    
+	border-radius: 5px;
+	background:#d98db4;
+}
+
 
 #links{
 font-family: "Century Schoolbook", cursive, sans-serif;
@@ -256,8 +304,8 @@ font-family: "Century Schoolbook", cursive, sans-serif;
 	text-align: center;
 	font-family: "Century Schoolbook", cursive, sans-serif;
 	font-size: 80%;
-	color:#6600FF;
-	background-color: #9999FF;
+	/*color:#6600FF;
+	background-image: url('../Images/Footer.png');*/
 	display: block;
 }
 #footer a:hover {background:#CC99FF;}	

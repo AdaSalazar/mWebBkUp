@@ -1,3 +1,7 @@
+<?php 
+	$path="";
+	require $path.'cms/sessionStarter.php';	
+?>
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -18,7 +22,14 @@
 <!-- Places the images on top-->
 
 	<div id="wrapper">
-		<?php require 'cms/sesionStarter.php'?>
+		<?php 
+			require $path.'cms/functions.php';	
+			databaseCreator();			
+			loginBanner($path);
+		?>
+		<div id="menu">
+			<?php menuCreator($path); ?>
+		</div>
 		<div id="content">
 
 			<p>Content 
