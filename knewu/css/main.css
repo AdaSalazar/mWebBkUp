@@ -25,18 +25,9 @@ p {
 	color: #660099;
 }
 
-#footer{
-	text-align: center;
-	font-family: "Century Schoolbook", cursive, sans-serif;
-	font-size: 80%;
-	color:#6600FF;
-	background-color: #9999FF;
-	display: block;
-}
-#footer a:hover {background:#CC99FF;}	
 #wrapper {
 
-	min-width: 780px;
+	min-width: 730px;
 	position: relative;
 	text-align: left;
 	width: 85%;
@@ -63,49 +54,16 @@ p {
 		
 }
 
-#navigation
-{
-	text-align: right;
-}
-#navigation a:hover {background:#CC99FF;}	
-	
-#links{
-font-family: "Century Schoolbook", cursive, sans-serif;
-} 
-#links a:hover {background:#CC99FF;}	
-#links a:visited {color:#9966CC;}
-
-
 
 #menu{
-	clear: both;
+	clear: both;	
 }
-#topBanner{
-	width: 100%;
-	display:block;
-	clear:both;
-	min-width:680;
-}
-#leftImg{
-	/*width: 30%;*/
-	display:inline;
-	margin-left:0;
-	float: left;
-	padding: 2em 0 .5em 1em;
-	/*background:pink;*/
-}
-#rightImg{
-	display:inline;
-	float: right;
-}
-
-
-
 .login {
 	font-family: "Century Schoolbook", cursive, sans-serif;	
 	font-size: 110%;
 	font-weight: bold;
 	color: #c11a70;
+	text-shadow: #5A5A5A 1px 1px 2px;
 	text-align: right;
 	float:right;
 	display:inline;
@@ -141,6 +99,12 @@ padding:.2em .3em .2em .3em ;
 .searchBox{
 	border-radius: 10px;
 }
+#right{
+	font-family: "Century Schoolbook", cursive, sans-serif;
+	color: #663399;
+	text-align: right;
+	margin:0px;
+}
 
 #searchForm{
 	padding: 7px 0 1px 0;
@@ -148,19 +112,16 @@ padding:.2em .3em .2em .3em ;
 
 /* Dropdown Menu*/
 nav {
-	/*margin: 100px auto; */
+	/*margin: 100px auto;min-width: 750px;	 */
 	text-align: center;
-	min-width: 750px;	
+	
 }
-
 nav ul ul {
 	display: none;	
 }
-
 	nav ul li:hover > ul {
 		display: block;
-	}
-	
+	}	
 nav ul {	
 	background-image: linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
 	background-image: -o-linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
@@ -187,7 +148,6 @@ nav ul {
 	nav ul:after {
 		content: ""; clear: both; display: block;
 	}
-
 	nav ul li {
 		float: left;
 	}
@@ -209,8 +169,7 @@ nav ul {
 		}
 			nav ul li:hover a {
 				color: #fff;
-			}
-		
+			}		
 		nav ul li a {
 			display: block; 
 			padding: 15px 30px;
@@ -218,9 +177,7 @@ nav ul {
 			color: black; 
 			text-shadow: #5A5A5A 1px 1px 2px;
 			text-decoration: none;
-		}
-			
-		
+		}	
 	nav ul ul {
 		background: #fa91c9;
 		background-image: linear-gradient(bottom, rgb(224,121,176) 0%, rgb(224,107,169) 32%, rgb(217,70,146) 73%);
@@ -251,8 +208,7 @@ nav ul {
 			}	
 				nav ul ul li a:hover {
 					/*background: #B02C72;*/
-				}
-		
+				}	
 	nav ul ul ul {
 		position: absolute; left: 100%; top:0;
 	}
@@ -268,8 +224,6 @@ nav ul {
 	float: left;*/
 	border: 1.5px  dash #d98db4;
 	border-radius: 5px;
-	
-	
 }
 
 #content {
@@ -285,23 +239,25 @@ nav ul {
 }
 
 
+#links{
+font-family: "Century Schoolbook", cursive, sans-serif;
+} 
+#links a:hover {background:#CC99FF;}	
+#links a:visited {color:#9966CC;}
+
+
 #bigText{
 	font-family: "Century Schoolbook", cursive, sans-serif;
 	color: #663399;
 	font-size: 120%;
 }
 
-#navigation{
+#footer{
+	text-align: center;
 	font-family: "Century Schoolbook", cursive, sans-serif;
-	color: #663399;
-	font-size: 60%;
-	text-align: right;
+	font-size: 80%;
+	color:#6600FF;
+	background-color: #9999FF;
+	display: block;
 }
-#navigation a:hover {background:#CC99FF;}
-
-#right{
-	font-family: "Century Schoolbook", cursive, sans-serif;
-	color: #663399;
-	text-align: right;
-	margin:0px;
-}
+#footer a:hover {background:#CC99FF;}	

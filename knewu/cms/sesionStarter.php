@@ -1,11 +1,5 @@
-
-		<div id="topBanner">
-			<div id="right">
+		<div id="right">
 			<img src="images/banner+logo.png" alt="Right brush image not available" align="left">
-			<!--<div id="rightImg"><img class="brush" src="images/RBrush.png" align="right" alt="Right brush image not available"></div>
-			<div id="centerImg"><img class="logo" src="images/Logo.png"  alt="Logo image not available"></div>
-			<div id="leftImg"><img class="brush" src="images/LBrush.png" alt="Left brush image not available"></div>
-			<div id="rightImg"></div>		-->
 			
 				<a href="http://www.youtube.com/"><img src="images/youtube.png" height="25px" width="25px" ></a>
 				<a href="https://twitter.com/"><img src="images/twitter.png" height="25px" width="25px" ></a>
@@ -27,8 +21,8 @@
 				}
 				require 'cms/functions.php';
 			?>
-			</div>
 		</div>
+		
 		<div id="menu">
 			<!--creates the top menu -->	
 				<?php 
@@ -38,45 +32,3 @@
 					menuCreator(); 	
 				?>
 		</div>		
-
-<?php 	
-	/*OLD  MENU VERSION
-	//This will create the menu
-	//$labels = array("HOME","MAKEUP BASICS","GALLERY","TUTORIALS");
-	$labels = array("Home","MakeUp Basics","Gallery","Tutorials");
-	$link = array("index","makeupBasics","gallery","tutorials");
-	//$labels = array("","","","");
-
-	//This gets the name of the page
-	$currentFile = $_SERVER["PHP_SELF"];
-	$parts = Explode('/', $currentFile);
-
-	//this will just take the name of the file   start  end
-	$tabName =  substr($parts[count($parts) - 1],  0,   -4);
-	echo '
-		<div id="tabs">';
-
-	for ($i=0; $i<=3; $i++){
-		//echo $link[$i].'  '.$tabName;
-		if (strcmp ($link[$i],$tabName) == 0){
-			echo '<div id="selected">';
-		} else {
-			echo '<div id="noSelected">';
-		}				
-		echo '<a href="'.$link[$i].'.php?adminEntryVerified">'.$labels[$i].'</a>
-			<!-- <div id="dropDown"><a href="">2</a></div> -->
-			</div>';
-	}	
-	echo 	'<div id="noSelected">
-				<div id="sForm">
-						<!-- This is the search engine miniform-->
-					<form action="search.php" method="GET">
-								<input type="text" size="15" name="search" class="searchBox">
-								<input type="submit" name="submit" value="Search" class="searchButton">
-					</form>
-				</div>
-			</div>
-	</div><!--tabs-->
-		';*/
-				
-?>
