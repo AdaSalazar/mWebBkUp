@@ -92,7 +92,7 @@
 
 		
 		} else {
-			echo "<p>Database exists</p>" . mysql_error();
+			//echo "<p>Database exists</p>" . mysql_error();
 		}
 	}
 	//databaseCreator();
@@ -211,15 +211,16 @@
 							break;
 					}
 				}  
-				  echo   '<li class="formli">
+				  echo   '
 						 <!-- This is the search engine miniform-->
-					   <form action="../cms/search.php" method="GET">
-							  <input type="text" size="15" name="search" class="searchBox">
-							 <input type="submit" name="submit" value="Search" class="searchButton">
-					   </form>
-					 </li>
+						<div id="searchForm">
+						   <form action="../cms/search.php" method="GET">
+								  <input type="text" size="15" name="search" class="searchBox">
+								 <input type="submit" name="submit" value="Search" class="searchButton">
+						   </form>
+						</div>
 				   </ul>
-			   </div><!--tabs-->
+			   </nav><!--tabs-->
 					';
 	}
 	

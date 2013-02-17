@@ -35,6 +35,8 @@ p {
 }
 #footer a:hover {background:#CC99FF;}	
 #wrapper {
+
+	min-width: 780px;
 	position: relative;
 	text-align: left;
 	width: 85%;
@@ -75,7 +77,9 @@ font-family: "Century Schoolbook", cursive, sans-serif;
 
 
 
-
+#menu{
+	clear: both;
+}
 #topBanner{
 	width: 100%;
 	display:block;
@@ -95,28 +99,7 @@ font-family: "Century Schoolbook", cursive, sans-serif;
 	float: right;
 }
 
- /*old css
-#centerImg{
-	width: 38%;
-	display:inline;
-	float: right;
 
-	padding-left:2%;
-}
-#rightImg{
-	width: 30%;
-	display:inline;
-	float: right;
-}
-.logo{
-
-	height: 30%;
-}
-.brush{
-	
-	height: 30%;
-}
-*/
 
 .login {
 	font-family: "Century Schoolbook", cursive, sans-serif;	
@@ -126,17 +109,18 @@ font-family: "Century Schoolbook", cursive, sans-serif;
 	text-align: right;
 	float:right;
 	display:inline;
-	padding: 2em .5em .5em 2em;
+/*	padding: 2em .5em .5em 2em;*/
 }
-.login :hover{
+.login a:hover{
 	border: solid;
 	border-width: 2px;
 	border-radius: 10px;
 	border: blue;
+	background: #F2A4CE;
 }
 .searchButton{
 	border-radius: 10px;
-
+padding:.2em .3em .2em .3em ;
 	background-image: linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
 	background-image: -o-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
 	background-image: -moz-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
@@ -157,133 +141,26 @@ font-family: "Century Schoolbook", cursive, sans-serif;
 .searchBox{
 	border-radius: 10px;
 }
-#tabs{
-	border: outset;
-	border-width: 2px;
-	border-radius: 10px;
-	/*background: #d94692;*/
-	background-image: linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
-	background-image: -o-linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
-	background-image: -moz-linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
-	background-image: -webkit-linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
-	background-image: -ms-linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.25, rgb(143,24,88)),
-		color-stop(0.65, rgb(217,70,146))
-	);
-	
-	font-family: "Century Schoolbook", cursive, sans-serif;
-	color: #580644;	
-	text-shadow: rgb(90,90,90) 2px 2px 3px;
-	
-	display: block;
-	padding: .2em .2em .1em .2em;
-	/**/min-width:680px;
-	clear:both;
-	
- }
-#noSelected a:hover{
-	border-radius: 5px;
-	/*background: #d98db4;*/
-	background-image: linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -o-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -moz-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -webkit-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -ms-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.25, rgb(217,70,146)),
-		color-stop(0.7, rgb(143,24,88))
-	);
-	
-	position: relative;
-	float: left;
-	padding: .5em 0em .5em 0em;
-	/*visibility: hidden;padding: .2em 0em .2em 0em;*/
+
+#searchForm{
+	padding: 7px 0 1px 0;
 }
 
-#noSelectedX a:hover{
-	border-radius: 5px;
-	/*background: #d98db4;*/
-	background-image: linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -o-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -moz-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -webkit-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -ms-linear-gradient(bottom, rgb(217,70,146) 25%, rgb(143,24,88) 70%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.25, rgb(217,70,146)),
-		color-stop(0.7, rgb(143,24,88))
-	);
-	
-	position: relative;
-	float: left;
-	padding: .5em 0em .5em 0em;
-	/*visibility: hidden;padding: .2em 0em .2em 0em;*/
-}
-
-/*dropdown prospect
-#tabs{
-  font-family: "Century Schoolbook", cursive, sans-serif;
-  color: #580644;
-  border: solid;
-  border-width: 2px 2px 2px 2px;
-  border-radius: 5px;
-  background: #d94692;
-  text-shadow: rgb(90,90,90) 2px 2px 3px;
- }
-#tabs li a{
-  list-style:none;
-  padding: 0em .3em 0em .3em;
-  color: black;
-  font-weight: bold;
-}
-
-#tabs li{
-  display:inline-block;
-  list-style:none;	
- }
- 
- #tabs a:hover{
-  border-radius: 5px;
-  background:#d98db4;
-  padding: .1em .3em .3em .3em;
-}
-
-#tabs #selected {
-  padding: 0em .3em 0em .3em;
-  background-image: url('../Images/MenuStar.png');
-  background-position: right top;
-  background-repeat:no-repeat;
-  position: relative;
-}*/
-
-
-
-/* dropdown example*/
-
+/* Dropdown Menu*/
 nav {
-	margin: 100px auto; 
+	/*margin: 100px auto; */
 	text-align: center;
-	min-width: 680px;
+	min-width: 750px;	
 }
 
 nav ul ul {
-	display: none;
+	display: none;	
 }
 
 	nav ul li:hover > ul {
 		display: block;
 	}
-
-
+	
 nav ul {	
 	background-image: linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
 	background-image: -o-linear-gradient(bottom, rgb(143,24,88) 25%, rgb(217,70,146) 65%);
@@ -393,13 +270,6 @@ nav ul {
 	border-radius: 5px;
 	
 	
-}
-
-#sForm{
-	padding:5px 10px 0px 0px;
-	display:inline-table; 
-	text-align:right;
-	/*border:1.5px  solid pink;*/
 }
 
 #content {

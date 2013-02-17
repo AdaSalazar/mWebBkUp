@@ -23,7 +23,7 @@
 		<div id="content">
 		
 		
-		<!----><nav>
+		<!--<nav>
 			<ul>
 				<li><a href="#" >Home</a></li>
 				<li><a href="#" class="SelectedX">MakeUp Basics</a>
@@ -56,14 +56,15 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+				<div id="searchForm">
 				<form action="../cms/search.php" method="GET">
 				  <input type="text" size="15" name="search">
 				  <input type="submit" name="submit" value="Search">
 				</form>
-				</li>
+				</div>
+			
 			</ul>
-		</nav>
+		</nav>-->
 			<p>Content 
 				<br>
 				<br>
