@@ -45,7 +45,7 @@
 					</div><!--tabs-->
 					<br />
 					<br />
-					<h1>Manage Your Page</h1>
+					<center><h1>Manage Your Page</h1></center>
 						<br>
 						<p>You can change how your user page looks like! </p>
 						

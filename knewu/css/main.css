@@ -80,11 +80,14 @@ p {
 	border-width: 2px;
 	border-radius: 10px;
 	border: blue;
-	background: #F2A4CE;
+	color: white;
+	background: #FC4BC1;
+	padding:.2em;
 }
-.button{
+/*for the login button*/
+.blogin{
 	border-radius: 10px;
-padding:.2em .3em .2em .3em ;
+padding:.2em .4em .2em .4em ;
 	background-image: linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
 	background-image: -o-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
 	background-image: -moz-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
@@ -98,24 +101,39 @@ padding:.2em .3em .2em .3em ;
 		color-stop(0.25, rgb(217,71,159)),
 		color-stop(0.7, rgb(242,164,206))
 	);
-
-
-
+	font-family: "Century Schoolbook", cursive, sans-serif;
+	font-size: 65%;
+}
+/*for all the buttons*/
+.button{
+	border-radius: 10px;
+	padding:.3em .7em .3em .7em ;
+	background-image: linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
+	background-image: -o-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
+	background-image: -moz-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
+	background-image: -webkit-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
+	background-image: -ms-linear-gradient(bottom, rgb(217,71,159) 25%, rgb(242,164,206) 70%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.25, rgb(217,71,159)),
+		color-stop(0.7, rgb(242,164,206))
+	);
+	font-weight:bold;
+	font-family: "Century Schoolbook", cursive, sans-serif;
+	
 }
 .box{
 	border-radius: 10px;
 }
+
 #right{
 	font-family: "Century Schoolbook", cursive, sans-serif;
 	color: #663399;
 	text-align: right;
 	margin:0px;
 }
-
-#searchForm{
-	padding: 7px 0 1px 0;
-}
-
 /* Dropdown Menu*/
 nav {
 	/*margin: 100px auto;min-width: 750px;	 */
@@ -219,8 +237,6 @@ nav ul {
 		position: absolute; left: 100%; top:0;
 	}
 
-
-
 .selected{
 	/**/background-image: url('../Images/MenuStar.png');
 	background-position: 90% center;
@@ -231,6 +247,7 @@ nav ul {
 	border: 1.5px  dash #d98db4;
 	border-radius: 5px;
 }
+
 
 #content {
 	font-family: "Century Schoolbook", cursive, sans-serif;
@@ -267,28 +284,65 @@ nav ul {
 	border-width: 2px 2px 2px 2px;
     background-color: #F6BADA;
 }
- 
 .subMenu ul li{
-    display: inline;}
- 
+    display: inline;
+}
 .subMenu ul li a{
     float: left;
     color: black; 
     padding: .7em .5em .7em .5em;
 }
- 
 .subMenu ul li a:visited{
     color: black;
 }
- 
 .subMenu ul li a:hover, .subMenu ul li .current{    
 	border-radius: 5px;
 	background:#d98db4;
 }
 
 
+/*This is for the form*/
+label{
+	display:block;
+}
+
+fieldset{
+	border:none; 
+}
+
+fieldset.form{
+	border:none; 
+	font-family: "Century Schoolbook", cursive, sans-serif;
+}
+
+/*Register Table*/
+#registert{
+	padding: 1em 2em 1em 4em;
+	border: 1px;
+}
+#logint {
+	padding-left: 5em;
+}
+
+#searchForm{
+	padding: 7px 0 1px 0;
+}
+
+/*Important messages*/
+.highlight{
+	background-color:#89D680;
+	/*font-size: 130%;*/
+	text-align: center;
+	color:black;
+}
+.highlightbad{
+	background-color:#E85A5A;
+	/*font-size: 130%;*/
+	text-align: center;
+	color:black;
+}
 #links{
-font-family: "Century Schoolbook", cursive, sans-serif;
+	font-family: "Century Schoolbook", cursive, sans-serif;
 } 
 #links a:hover {background:#CC99FF;}	
 #links a:visited {color:#9966CC;}

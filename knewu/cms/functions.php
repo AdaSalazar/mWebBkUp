@@ -1,15 +1,25 @@
 <!-- This is gonna create the database-->
 <?php
 	function databaseCreator(){
-		$connect = mysql_connect("localhost","root","") or die("Couldn't connect." . mysql_error());
+		//open database 
+		$dbName = "knewu";	
+		//Local host
+		$dbHost = "localhost";
+		$dbUsername = "root";
+		$dbPassword = "";
 		
+		//Live Host
+		/*$dbHost = "knewu.db.10370453.hostedresource.com";
+		$dbUsername = "knewu";
+		$dbPassword = "Makeup1!";*/
+		$connect = mysql_connect($dbHost,$dbUsername,$dbPassword) or die("Couldn't connect." . mysql_error());		
 		//echo "<p>Connected</p>";
 		
-		if (!mysql_select_db("knewUDB")) {
-			$query = ("CREATE DATABASE knewUDB");
-			mysql_query($query) or die("Couldn't create databases 'knewUDB'");
-			echo "Created database 'knewUDB'<p>";
-			mysql_select_db("knewUDB", $connect);
+		if (!mysql_select_db($dbName)) {
+			$query = ("CREATE DATABASE ".$dbName);
+			mysql_query($query) or die('Couldn\'t create databases "'.$dbName.'"');
+			echo '<p>Created database '.$dbName.'</p>';
+			mysql_select_db($dbName, $connect);
 			
 			//I need the password part to be 100characters because I am using md5 encryption
 			$createUsersTable = "CREATE TABLE usersT
@@ -238,17 +248,18 @@
 			if(isset($_SESSION['username'])){
 				//$sessionName = $_SESSION['username'];//This line is used for the cart.php
 				echo '<p class="login" >Welcome '.$_SESSION['username'].'!!  <br/><a href="'.$path.'users/">Go to My Page</a><br/>';
-				echo '<sub> <small>Not '.$_SESSION['username'].'?? <br/>Please <a href="'.$path.'users/logout.php">Logout</a></sub></small></p>
+				echo ' <small><sub>Not '.$_SESSION['username'].'?? <br/>Please <a href="'.$path.'users/logout.php">Logout</a></sub></small></p>
 				';
 			}else{
-				//$sessionName = "Guest";
+				//$sessionName = "Guest";<p class="login" ><a href="'.$path.'users/register.php">Register</a></p>
+				
 				echo '
 				<form action="'.$path.'users/login.php" method="POST">
-					<small>Username:	<input type="text" size="10" name="usernameF" class="box" /><br/>
-					Password:	<input type="password" size="10" name="password" class="box"/><br/>
-					<input type="submit" value="Log in" class="button"></small>
-				</form> 
-				';	
+					<small>Username:</small><input type="text" size="13" name="usernameF" class="box" /><br/>
+					<small>Password:</small><input type="password" size="13" name="password" class="box"/><br/>
+					<input type="submit" value="Log in" name="login" class="blogin">
+					<input type="submit" value="Register" name="register" class="blogin">
+				</form>';	
 			}
 				
 		echo'</div>';

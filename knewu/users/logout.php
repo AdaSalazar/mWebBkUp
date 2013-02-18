@@ -33,7 +33,8 @@
 		<div id="tabContent">
 			<?php
 				session_destroy();
-				echo '<p>You have been logged out. <br/> You are going to be redirected to the Homepage.</p>';
+				echo '<p>You have been logged out.</p>';
+				echo '<p class="highlight">You are going to be redirected to the Homepage.</p>';
 				header( 'refresh:4;url='.$path.'index.php' );
 			?>
 					

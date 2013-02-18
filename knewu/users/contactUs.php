@@ -1,5 +1,6 @@
 <?php 
-	require '../admin/sessionStarter.php'
+	$path="../";
+	require $path.'cms/sessionStarter.php';	
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,95 +20,106 @@
 
 <body>
 	<div id="wrapper">
-		<div id="tabs"> 
-			<ul>
-				<li><a href="http://localhost/447967/client/index.php">Home</a></li>
-				<li><a href="http://localhost/447967/client/products.php">Products</a></li>
-				<li><a href="http://localhost/447967/client/orders.php">Your order</a></li>
-				<li id="selected"><a href="http://localhost/447967/client/contactUs.php">Contact Us</a></li>
-				<li><a href="http://localhost/447967/client/aboutUs.php">About Us</a></li>
-			</ul>
-		</div><!--tabs-->
+	
+		<?php 
+			require $path.'cms/functions.php';	
+			databaseCreator();			
+			loginBanner($path);
+		?>
+		<div id="menu">
+			<?php menuCreator($path); $displayForm = true;?>
+		</div>		
+
 
 		<div id="tabContent">
-					
+			
 			<?php
-				if (isset($_POST['submit'])){
-					//open database 
-					$connect = mysql_connect("localhost","root","") or die("Couldn't connect." . mysql_error());
-					//select database
-					mysql_select_db("myDatabase")or die("Couldn't select database." . mysql_error());
-					
-					$submit = $_POST['submit'];
-					
-					//Form data
+				if (isset($_POST['sendEmail'])){
+					$sendEmail = $_POST['sendEmail'];
+					//Getting data from the form
 					//The strip_tags is to prevent people trying to use html tags in the fields
-					$fullName = strip_tags($_POST['fullName']);
+					//the paramcheck uses that function to check for sql injections
+					$typeOfMessage = strip_tags($_POST['typeOfMessage']);				
+					$fullName = strip_tags($_POST['fullName']);	
 					$email = strip_tags($_POST['email']);
 					$message = strip_tags($_POST['message']);
-					$typeOfMessage = strip_tags($_POST['typeOfMessage']);	
 					
 					//check for existance of all fields
 					if($fullName&&$email&&$message&&$typeOfMessage!=='none'){
-						//Registering the user into the database
-						$queryreg = mysql_query("
-						INSERT INTO messages VALUES('','$typeOfMessage','$fullName','$email','$message')
-						");
-						//Resets the form and variables
-						$fullName = "";
-						$email = "";
-						$message = "";		
-						//Personalised message display for each category
-						if($typeOfMessage=='complaint'){
-							echo "<h3>Your message has been successfully sent.</h3><br>
-								  <p>We are sorry for any inconvinience that we caused you.</p>";
-						} else if($typeOfMessage=='question'){
-							echo "<h3>Your message has been successfully sent.</h3><br> 
-								  <p>We will get in touch as soon as possible</p>";
-						} else if($typeOfMessage=='positiveFeedback'){
-							echo "<h3>Your message has been successfully sent.</h3><br> 
-								  <p>Thank you for sharing your opinions with us! <br>:) Have a nice day.</p>";
-						} else {
-							echo "<h1>Your message has been successfully sent.</h1>"; 
-						}
+
+						echo "<h1 class='highlight'>Your message has been successfully sent.</h1>"; 
+						
+						//E-mail Information
+						$header = "From: abi@salazar.com \r\nOriginating-IP: " . $_SERVER['REMOTE_ADDR'];
+						$from = "From: <".$email.">\r\nOriginating-IP: <" . $_SERVER['REMOTE_ADDR']."> \r\n";
+						$toEmail  = 'knewu@abisalazar.com';
+						$subject = $typeOfMessage;
+						// \n\r creates a New Line
+						$finalMessage = $from."Subject: < ".$subject." >\r\nFullname: < ".$fullName." >\r\n\r\n Message: \r\n".$message;
+					//	echo $toEmail.'<br>'.$subject.'<br>'.$finalMessage.'<br>'.$header;
+						//sends the email
+						mail($toEmail, $subject, $finalMessage, $header);
+						
+						$to = $email;
+						$subject = 'Thank you for your e-mail.';
+						$body = "Thank you for your e-mail, I will be in contact as soon as possible.";
+						$headers = 'From: Do-not-reply@abisalazar.com';
+
+						mail($to, $subject, $body, $headers);
+						
+						$displayForm = false;
+						
 					} else {
-						echo "<p>Please fill in <b><u>all</u></b> fields before sending the form!!<p/>";
-					}
+						echo '<p class="highlightbad">Please fill in <b><u>all</u></b> fields before sending the form!!<p/>';
+					}	
+					
 				
-				} else {
-					echo '
-					<center><h1>Contact Us</h1></center>
-					<h2>Do you want to send us a message?</h2>
-					<p>Please select the reason of your message and fill the form.</p>
+				}
+				if($displayForm){
+				echo '
+					
+					<h2>Do you want to send me a message?</h2>
+					<p><strong>Please select the reason of your message and fill the form.</strong></p>
+					
 					<form action="contactUs.php" method="POST">
+					
 						<fieldset class="form">
+
 							<label>Type Of Message:</label> 
-							<select class="typing" name="typeOfMessage">
+							<select class="box" name="typeOfMessage" required="required">
 								<option value="none"></option>
-								<option value="question">Question</option>
-								<option value="complaint">Complaint</option>
-								<option value="positiveFeedback">Positive Feedback</option>
-								<option value="other">Other</option>
+								<option value="Question">Question</option>
+								<option value="Feedback">Feedback</option>
+								<option value="Other">Other</option>
 							</select>
+							
 							<label>Full name:</label> 
-							<input class="typing" type="text" name="fullName" value="" size="35">
+							<input class="box" type="text" name="fullName" value="" size="35" required="required">
 							
 							<label>E-mail:</label> 
-							<input class="typing" type="text" name="email" value="" size="35">
+							<input class="box" type="text" name="email" value="" size="35" required="required">
 							
 							<label>Message:</label> 
-							<textarea rows="10" cols="30"input type="text" name="message"></textarea> 
+							<textarea rows="10" cols="30" input type="text" name="message"></textarea> 
+
 						</fieldset>
 						
 						<fieldset class="form">
-						<input class="btn" type="submit" name="submit" value="Send">
+						<input class="button" type="submit" name="sendEmail" value="Send">
 						</fieldset>
+						
 					</form>
+					
 					';
 				}
-			?>
-			
-				
+				//Resets the form and variables
+						$fullName = "";
+						$email = "";
+						$message = "";		
+						$companyName = "";
+						$phoneNumber = "";
+	
+			?>	
 				
 			
 		</div><!--tabContent-->
