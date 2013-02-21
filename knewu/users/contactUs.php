@@ -45,30 +45,34 @@
 					$message = strip_tags($_POST['message']);
 					
 					//check for existance of all fields
-					if($fullName&&$email&&$message&&$typeOfMessage!=='none'){
+					if($fullName&&$email&&$message){
+						if($typeOfMessage!=='none'){
 
-						echo "<h1 class='highlight'>Your message has been successfully sent.</h1>"; 
-						
-						//E-mail Information
-						$header = "From: abi@salazar.com \r\nOriginating-IP: " . $_SERVER['REMOTE_ADDR'];
-						$from = "From: <".$email.">\r\nOriginating-IP: <" . $_SERVER['REMOTE_ADDR']."> \r\n";
-						$toEmail  = 'knewu@abisalazar.com';
-						$subject = $typeOfMessage;
-						// \n\r creates a New Line
-						$finalMessage = $from."Subject: < ".$subject." >\r\nFullname: < ".$fullName." >\r\n\r\n Message: \r\n".$message;
-					//	echo $toEmail.'<br>'.$subject.'<br>'.$finalMessage.'<br>'.$header;
-						//sends the email
-						mail($toEmail, $subject, $finalMessage, $header);
-						
-						$to = $email;
-						$subject = 'Thank you for your e-mail.';
-						$body = "Thank you for your e-mail, I will be in contact as soon as possible.";
-						$headers = 'From: Do-not-reply@abisalazar.com';
+							echo "<h1 class='highlight'>Your message has been successfully sent.</h1>"; 
+							
+							//E-mail Information
+							$header = "From: abi@salazar.com \r\nOriginating-IP: " . $_SERVER['REMOTE_ADDR'];
+							$from = "From: <".$email.">\r\nOriginating-IP: <" . $_SERVER['REMOTE_ADDR']."> \r\n";
+							$toEmail  = 'knewu@abisalazar.com';
+							$subject = $typeOfMessage;
+							// \n\r creates a New Line
+							$finalMessage = $from."Subject: < ".$subject." >\r\nFullname: < ".$fullName." >\r\n\r\n Message: \r\n".$message;
+						//	echo $toEmail.'<br>'.$subject.'<br>'.$finalMessage.'<br>'.$header;
+							//sends the email
+							mail($toEmail, $subject, $finalMessage, $header);
+							
+							$to = $email;
+							$subject = 'Thank you for your e-mail.';
+							$body = "Thank you for your e-mail, I will be in contact as soon as possible.";
+							$headers = 'From: Do-not-reply@abisalazar.com';
 
-						mail($to, $subject, $body, $headers);
-						
-						$displayForm = false;
-						
+							mail($to, $subject, $body, $headers);
+							
+							$displayForm = false;
+							
+						} else {
+							echo '<p class="highlightbad">Please select a type of message before submiting!!<p/>';
+						}	
 					} else {
 						echo '<p class="highlightbad">Please fill in <b><u>all</u></b> fields before sending the form!!<p/>';
 					}	
@@ -87,7 +91,7 @@
 
 							<label>Type Of Message:</label> 
 							<select class="box" name="typeOfMessage" required="required">
-								<option value="none"></option>
+								<option value="none" ></option>
 								<option value="Question">Question</option>
 								<option value="Feedback">Feedback</option>
 								<option value="Other">Other</option>

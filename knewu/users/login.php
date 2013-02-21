@@ -106,7 +106,7 @@
 								$dbpassword = $row['password'];
 							}
 							if ($username==$dbusername&&md5($password)==$dbpassword){
-								echo "<h3>You have successfully logged in!</h3> <br/> <p class='highlight'>You are going to be redirected to the home page.</p>";
+								echo "<h3>You have successfully logged in!</h3> <br/> <p class='highlight'>You are going to be redirected to yopur page.</p>";
 								$_SESSION['username']=$username;
 								header( 'refresh:4;url=index.php' );
 								//Displays a personalized message depending on the user entered

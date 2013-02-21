@@ -47,6 +47,7 @@
 				userObject LONGBLOB NOT NULL,
 				userObjectDesc text NOT NULL ,
 				userObjectKeywords varchar(100) NOT NULL ,
+				userObjectType varchar(3) NOT NULL ,
 				PRIMARY KEY (userObjectID),
 				FOREIGN KEY (userID) REFERENCES usersT(userID)
 			)";
@@ -247,8 +248,8 @@
 			//session_destroy();
 			if(isset($_SESSION['username'])){
 				//$sessionName = $_SESSION['username'];//This line is used for the cart.php
-				echo '<p class="login" >Welcome '.$_SESSION['username'].'!!  <br/><a href="'.$path.'users/">Go to My Page</a><br/>';
-				echo ' <small><sub>Not '.$_SESSION['username'].'?? <br/>Please <a href="'.$path.'users/logout.php">Logout</a></sub></small></p>
+				echo '<p class="login" >Welcome '.ucfirst ( $_SESSION['username']).'!!  <br/><a href="'.$path.'users/">Go to My Page</a><br/>';
+				echo ' <small><sub>Not '.ucfirst ( $_SESSION['username']).'?? <br/>Please <a href="'.$path.'users/logout.php">Logout</a></sub></small></p>
 				';
 			}else{
 				//$sessionName = "Guest";<p class="login" ><a href="'.$path.'users/register.php">Register</a></p>
@@ -264,5 +265,25 @@
 				
 		echo'</div>';
 	}
-
+	function updateSearchEngine(){
+				//this will populate the table search engine with the items
+				$getVideoInfo = mysql_query('SELECT pName, pDescription, pPrice FROM Videos');
+				$numOfVideos = mysql_num_rows($getVideoInfo);
+				$cleanSearchEngineTable = mysql_query("
+						TRUNCATE TABLE searchengine");
+				if($numOfVideos>0){
+					while($get_row = mysql_fetch_assoc($getVideoInfo)){
+					
+						$titleVar = $get_row['pName'];
+						$descriptionVar = $get_row['pDescription'];
+						$priceVar = $get_row['pPrice'];
+						$keywords = $get_row['pName'].' '.strval($get_row['pPrice']) ;
+						
+						$fillSearchEngine = mysql_query("
+						INSERT INTO searchengine VALUES('','$titleVar','$descriptionVar','$priceVar','$keywords')
+						");
+						
+					}
+				}
+			}
 ?>

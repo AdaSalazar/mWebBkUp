@@ -1,0 +1,31 @@
+<br />
+					<br />
+					<center><h1>Upload a video to my channel</h1>
+					<p>Please select a way to upload a video to your channel:</p>
+					</center>
+					
+					<form action="video.php" method="POST" enctype="multipart/formdata">
+						<fieldset>
+							<input class="button" name="computer" type="submit" value="Upload a video from My Computer">
+			
+							<input class="button" name="link" type="submit" value="Upload a video using a Link">
+						</fieldset>
+					</form>
+					
+					';
+					$computerUpload = isset($_POST['computer']);
+					
+					$linkUpload = isset($_POST['link']);
+					$blank = "";
+					
+
+					switch ($computerUpload OR $linkUpload) {
+						case $computerUpload:
+							echo " asfasdfcomp";
+							break;
+						case $linkUpload:
+							echo "link";
+							break;
+						default:
+							echo "default";
+					}

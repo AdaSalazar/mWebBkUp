@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-	<title>Users Page</title>
+	<title>Users Page - kNewU</title>
 	<!--This part does the styles switcher-->
 	<link rel="stylesheet" type="text/css" title="Main" 
 	href="../css/main.css">

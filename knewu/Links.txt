@@ -1,3 +1,7 @@
 http://www.scriptygoddess.com/archives/2007/07/13/use-php-to-get-the-current-pagefile-name/
 http://stackoverflow.com/questions/114543/how-to-center-a-div-in-a-div-horizontally
 http://www.colorzilla.com/gradient-editor/
+For uploading images
+http://stackoverflow.com/questions/9809584/php-upload-video
+http://stackoverflow.com/questions/11839127/php-video-upload-script
+http://support.brightcove.com/en/video-cloud/docs/media-write-api-php-example-upload-video
