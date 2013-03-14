@@ -38,16 +38,31 @@
 			echo "table 'usersT' created.<br>";
 			
 			
+			$createUserPageTable = "CREATE TABLE userPageT
+			(
+				uPageID int NOT NULL AUTO_INCREMENT,
+				userID int NOT NULL ,
+				uPage TEXT NOT NULL ,
+				uProfilePic TEXT NOT NULL ,
+				uAbout LONGTEXT NOT NULL ,
+				uBanner TEXT NOT NULL ,
+				uCSS TEXT NOT NULL ,
+				PRIMARY KEY (uPageID),
+				FOREIGN KEY (userID) REFERENCES usersT(userID)
+			)";
+			mysql_query($createUserPageTable,$connect) or die("Couldn't create 'userPageT' table .<br>" . mysql_error());
+			//test
+			echo "table 'userObjectT' created. <br>";
+			
 			$createVideosTable = "CREATE TABLE userObjectT
 			(
 				userObjectID int NOT NULL AUTO_INCREMENT,
 				userID int NOT NULL ,
-				userObjectTitle varchar(100) NOT NULL ,
-				userObjectLink mediumtext NOT NULL ,
-				userObject LONGBLOB NOT NULL,
-				userObjectDesc text NOT NULL ,
-				userObjectKeywords varchar(100) NOT NULL ,
-				userObjectType varchar(3) NOT NULL ,
+				userObjectTitle VARCHAR(100) NOT NULL ,
+				userObjectLink MEDIUMTEXT NOT NULL ,
+				userObjectDesc LONGTEXT NOT NULL ,
+				userObjectKeywords TEXT NOT NULL ,
+				userObjectType VARCHAR(3) NOT NULL ,
 				PRIMARY KEY (userObjectID),
 				FOREIGN KEY (userID) REFERENCES usersT(userID)
 			)";
@@ -55,7 +70,26 @@
 			//test
 			echo "table 'userObjectT' created. <br>";
 			
-			$createProductsTable = "CREATE TABLE friendsT
+			
+			$createPicTutTable = "CREATE TABLE picTutorialT
+			(
+				userPicID int NOT NULL AUTO_INCREMENT,
+				userID int NOT NULL ,
+				picTutorialTitle VARCHAR(100) NOT NULL ,
+				picTitle VARCHAR(100) NOT NULL ,
+				picLink MEDIUMTEXT NOT NULL ,
+				picDesc LONGTEXT NOT NULL ,
+				tutorialKeywords TEXT NOT NULL ,
+				picNum int NOT NULL ,
+				PRIMARY KEY (userPicID),
+				FOREIGN KEY (userID) REFERENCES usersT(userID)
+			)";
+			mysql_query($createPicTutTable,$connect) or die("Couldn't create 'picTutorialT' table .<br>" . mysql_error());
+			//test
+			echo "table 'picTutorialT' created. <br>";
+			
+			
+			$createFriendsTable = "CREATE TABLE friendsT
 			(
 				friendshipID int NOT NULL AUTO_INCREMENT,
 				userID int NOT NULL ,
@@ -64,7 +98,7 @@
 				FOREIGN KEY (userID) REFERENCES usersT(userID),
 				FOREIGN KEY (freindsID) REFERENCES usersT(userID)
 			)";
-			mysql_query($createProductsTable,$connect) or die("Couldn't create 'friendsT' table .<br>" . mysql_error());
+			mysql_query($createFriendsTable,$connect) or die("Couldn't create 'friendsT' table .<br>" . mysql_error());
 			//test
 			echo "table 'friendsT' created. <br>";
 			
@@ -109,9 +143,9 @@
 	
 	function menuCreator($path){
 		//Top menu labels
-					$topMenuLabels = array("Home","MakeUp Basics","Gallery","Tutorials");
+					$topMenuLabels = array("Home","MakeUp Basics","Gallery","Tutorials","Chat","Contact Us");
 					//Top menu links (html files names)
-					$htmlFile = array("index","makeupBasics","gallery","tutorials");
+					$htmlFile = array("index","makeupBasics","gallery","tutorials","chat","contactUs");
 					
 					//first drop down menu
 						//Make Up Basics drop down menu labels
@@ -187,7 +221,7 @@
 							</li>';
 							break;
 						case 2:
-							echo '<a href="'.$path.$htmlFile[$topMenu].'.php?adminEntryVerified">'.$topMenuLabels[$topMenu].'</a></li>';
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a></li>';
 							break;
 						case 3:
 							echo '<a href="'.$path.$htmlFile[$topMenu].'.php">'.$topMenuLabels[$topMenu].'</a>
@@ -219,16 +253,25 @@
 								</ul>
 							</li>';
 							break;
+						case 4:
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php?">'.$topMenuLabels[$topMenu].'</a></li>';
+							break;
+						case 5:
+							echo '<a href="'.$path.$htmlFile[$topMenu].'.php?">'.$topMenuLabels[$topMenu].'</a></li>';
+							break;
 					}
 				}  
 				  echo   '
 						 <!-- This is the search engine miniform-->
-						<div id="searchForm">
-						   <form action="../cms/search.php" method="GET">
-								  <input type="text" size="15" name="search" class="box">
-								 <input type="submit" name="submit" value="Search" class="button">
-						   </form>
-						</div>
+						
+						<form action="../cms/search.php" method="GET">
+							<div id="searchForm">  
+								<input type="submit" name="submit" value="Search" class="button">
+							</div>
+							<div id="searchForm"> 
+								<input type="text" size="15" name="search" class="box">
+							</div>
+						</form>
 				   </ul>
 			   </nav><!--tabs-->
 					';
@@ -237,24 +280,31 @@
 	function loginBanner($path){
 		echo'<div id="right">
 			<img src="'.$path.'images/banner+logo.png" alt="Right brush image not available" align="left">
-			
-				<a href="http://www.youtube.com/"><img src="'.$path.'images/youtube.png" height="25px" width="25px" ></a>
+										
+					<div class="miniSubMenu"> 
+						<a href="index.php">Manage your page</a> <b>|</b> 
+						<a href="video.php">Upload a Video</a> <b>|</b>  
+						<a href="userpagemanager.php">Manage your Uploads</a>
+					</div><!--minitabs-->	';
+			/*	<a href="http://www.youtube.com/"><img src="'.$path.'images/youtube.png" height="25px" width="25px" ></a>
 				<a href="https://twitter.com/"><img src="'.$path.'images/twitter.png" height="25px" width="25px" ></a>
 				<a href="http://www.flickr.com/"><img src="'.$path.'images/flickr.png" height="25px" width="25px" ></a>
 				<a href="https://www.facebook.com/"><img src="'.$path.'images/fb.png" height="25px" width="25px" ></a>	
-			';
+			';*/
 			//Sessions
 			//session_start(); 
 			//session_destroy();
 			if(isset($_SESSION['username'])){
 				//$sessionName = $_SESSION['username'];//This line is used for the cart.php
-				echo '<p class="login" >Welcome '.ucfirst ( $_SESSION['username']).'!!  <br/><a href="'.$path.'users/">Go to My Page</a><br/>';
+				echo '<div ><p class="login" >Welcome '.ucfirst ( $_SESSION['username']).'!!  <br/><a href="'.$path.'users/">Go to My Page</a><br/>';
 				echo ' <small><sub>Not '.ucfirst ( $_SESSION['username']).'?? <br/>Please <a href="'.$path.'users/logout.php">Logout</a></sub></small></p>
+				</div>
 				';
 			}else{
 				//$sessionName = "Guest";<p class="login" ><a href="'.$path.'users/register.php">Register</a></p>
 				
 				echo '
+			<br /><br />
 				<form action="'.$path.'users/login.php" method="POST">
 					<small>Username:</small><input type="text" size="13" name="usernameF" class="box" /><br/>
 					<small>Password:</small><input type="password" size="13" name="password" class="box"/><br/>
@@ -265,6 +315,7 @@
 				
 		echo'</div>';
 	}
+	
 	function updateSearchEngine(){
 				//this will populate the table search engine with the items
 				$getVideoInfo = mysql_query('SELECT pName, pDescription, pPrice FROM Videos');
@@ -286,4 +337,83 @@
 					}
 				}
 			}
-?>
+
+	function cleanInput($input) {
+		$search = array(
+		'@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+		'@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+		'@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+		'@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+		);
+
+		$output = preg_replace($search, '', $input);
+		return $output;
+	}		
+	
+	function sanitize($input) {
+		if (is_array($input)) {
+			foreach($input as $var=>$val) {
+				$output[$var] = sanitize($val);
+			}
+		} else {
+			$input = stripslashes($input);
+			$input  = cleanInput($input);
+			$output = mysql_real_escape_string($input);
+			$output = removecharacters($output);
+		}
+		return $output;
+	}
+	function removecharacters($input){
+		$cleaned = str_replace("/", "", $input);
+		$cleaned = str_replace("'", "", $cleaned);
+		$cleaned = str_replace("\\", "", $cleaned);
+		$cleaned = filter_var($cleaned, FILTER_SANITIZE_STRING);
+					
+		return $cleaned;
+	}	
+	function dinamicCounter(){
+echo'
+								<script type="text/javascript">
+									
+									 window.onload = function() {
+									 /* set your parameters( number to countdown from, pause between counts in milliseconds, 
+									 function to execute when finished ) 	 */
+									 startCountDown(30, 1000, myFunction("index.php"));
+									 }
+									function startCountDown(i, p, f) {
+										 // store parameters
+										 var pause = p;
+										 var fn = f;
+										 // make reference to div
+										 var countDownObj = document.getElementById("countDown");
+										 if (countDownObj == null) {
+											 // error
+											 alert("div not found, check your id");
+											 // bail
+											 return;
+										 }
+										 countDownObj.count = function(i) {
+											 // write out count
+											 countDownObj.innerHTML = i;
+											 if (i == 0) {
+												 // execute function
+												 fn();
+												 // stop
+												 return;
+											 }
+											 setTimeout(function() {
+												 // repeat
+												 countDownObj.count(i - 1);
+											 },
+											 pause);
+										 }
+										 // set it going
+										 countDownObj.count(i);
+									 }
+
+									 function myFunction(page) {
+										//window.location.replace(page);
+									 }
+								</script>';
+}	
+			?>

@@ -16,6 +16,9 @@
 	<link rel="alternate stylesheet" type="text/css" title="High Contrast" 
 	href="../css/highContrast.css">
 	<script type="text/javascript" src="../javascripts/styleswitcher.js"></script>
+	
+
+
 </head>
 
 <body>
@@ -106,9 +109,14 @@
 								$dbpassword = $row['password'];
 							}
 							if ($username==$dbusername&&md5($password)==$dbpassword){
-								echo "<h3>You have successfully logged in!</h3> <br/> <p class='highlight'>You are going to be redirected to yopur page.</p>";
+							
 								$_SESSION['username']=$username;
-								header( 'refresh:4;url=index.php' );
+								
+								echo "<h3>You have successfully logged in!</h3>							
+								<br />
+								<div id='highlight'>You will be redirected to your user page.</div> 							
+								";
+								header( 'refresh:2;url=index.php' );
 								//Displays a personalized message depending on the user entered
 								//echo $displayMessage;
 							}else{
@@ -133,18 +141,19 @@
 			?>
 			
 		</div><!--tabContent-->
-
+		<br>
+		<br>
+		<div id="footer">	
+		<img border="0" src="../images/footer.png" alt="footer image">
+			<p><a>&copy; Ada Salazar 2011 - Present</a>
+			&nbsp;|&nbsp;
+			<a href="disclaimer.html"> Disclaimer</a>
+			&nbsp;|&nbsp;
+			<a href="#topOfPage">Top of page</a></p>
+		</div><!--footer-->
 	</div><!--wrapper-->
 	
 	<br>
-	<br>
-	<div id="footer">	
-		<p><a>&copy; Ada Salazar 2011 - Present</a>
-		&nbsp;|&nbsp;
-		<a href="../disclaimer.html"> Disclaimer</a>
-		&nbsp;|&nbsp;
-		<a href="#topOfPage">Top of page</a></p>
-	</div><!--footer-->
 </body>
 
 </html> 

@@ -41,13 +41,17 @@
 				if (isset($_POST['submitRegistration'])) {
 					$submitRegistration = $_POST['submitRegistration'];
 					//Form data
-					//The strip_tags is to prevent people trying to use html tags in the fields
-					$firstname = strip_tags($_POST['firstname']);
-					$lastname = strip_tags($_POST['lastname']);
-					$username = strtolower(strip_tags($_POST['username']));
-					$password = strip_tags($_POST['password']);
-					$repeatpassword = strip_tags($_POST['repeatpassword']);
+					//This sanitizes the data before entering it into the database
+					$firstname = sanitize($_POST['firstname']);
+					$lastname = sanitize($_POST['lastname'], FILTER_SANITIZE_STRING);
+					$username = sanitize(strtolower($_POST['username']));
+					$password = sanitize($_POST['password']);
+					$repeatpassword = sanitize($_POST['repeatpassword']);
 					$date = date("Y-m-d");
+					//echo filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
+					//filter_var($email, FILTER_VALIDATE_EMAIL)
+					
+					
 				} 
 				if (isset($_POST['submitRegistration'])){
 					//open database 
@@ -73,8 +77,9 @@
 					if($countRecords!=0){
 						echo "<p class='highlightbad'>The username selected is already taken, please try again.</p>";				
 					}else{
+						
 						//check for existance of all fields
-						if($firstname&&$lastname&&$username&&$password&&$repeatpassword){
+						/**/if($firstname&&$lastname&&$username&&$password&&$repeatpassword){
 							
 							if($password==$repeatpassword){
 								//checking the length of the data entered. 
@@ -95,15 +100,13 @@
 										$queryreg = mysql_query("
 										INSERT INTO usersT VALUES('','$username','$password','$firstname','$lastname','','$date')
 										");
-										die('<p class="highlight">Registration has been successfull!</p><br/> 
+										die('<p class="highlight">Congratulations "<strong><u>'.$username.'</u></strong>", your registration has been successfull!</p><br/> 
 										<center><form action="login.php" method="POST">											
 											<p><b>Username:</b><input type="text" size="20" name="usernameF" class="box">
 											<b>Password:</b><input type="password" size="20" name="password" class="box">
 											<input type="submit" value="Log in" name="login" class="button"></p>
 										</form></center>
 										');
-							
-										echo "<p class='highlight'>Registration has succeeded!</p>";
 									}
 								
 								}
@@ -112,7 +115,7 @@
 							}	
 						} else {
 							echo "<p class='highlightbad'>Please fill in <b><u>all</u></b> fields!!</p>";
-						}
+						}/**/
 					}
 					
 					
@@ -122,7 +125,7 @@
 				<tr>
 					<td width="55%"><!--Register-->
 						<p> Note that you can <strong><u>not</u></strong> 
-						use single quotes ' for any field and the password has
+						use characters as ( ' / < > )for <strong><u>any field</u></strong>  and the password has
 						to be between 6 and 25 characters long.</p>
 						<form action='register.php' method='POST'>
 							<fieldset class="form">
@@ -164,18 +167,20 @@
 			</table>
 			
 		</div><!--tabContent-->
+		<br>
+		<br>
+		<div id="footer">	
+		<img border="0" src="../images/footer.png" alt="footer image">
+			<p><a>&copy; Ada Salazar 2011 - Present</a>
+			&nbsp;|&nbsp;
+			<a href="disclaimer.html"> Disclaimer</a>
+			&nbsp;|&nbsp;
+			<a href="#topOfPage">Top of page</a></p>
+		</div><!--footer-->
 		
 	</div><!--wrapper-->
 	
 	<br>
-	<br>
-	<div id="footer">	
-		<p><a>&copy; Ada Salazar 2011 - Present</a>
-		&nbsp;|&nbsp;
-		<a href="disclaimer.html"> Disclaimer</a>
-		&nbsp;|&nbsp;
-		<a href="#topOfPage">Top of page</a></p>
-	</div><!--footer-->
 </body>
 
 </html> 

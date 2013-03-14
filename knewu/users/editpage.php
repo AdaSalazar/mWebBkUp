@@ -36,10 +36,10 @@
 				} else {
 					
 					$userName = str_replace(" ", "_", $_SESSION['username']);
-					echo '	<br>				
+					echo '							
 					<div class="subMenu"> 
 						<ul>					
-							<li id="nonsel"><a href="editpage.php">Manage the look of your page</a></li>
+							<li id="sel"><a href="editpage.php">Manage Your Page</a></li>
 							<li id="nonsel"><a href="video.php">Upload a Video</a></li>
 							<li id="nonsel"><a href="photo.php">Upload a Photo</a></li>
 							<li id="nonsel"><a href="ptutorial.php">Upload a photo tutorial </a></li>

@@ -40,17 +40,19 @@
 				end
 			</p>
 		</div><!--content-->
+		<br>
+		<br>
+		<div id="footer">	
+		<img border="0" src="images/footer.png" alt="footer image">
+			<p><a>&copy; Ada Salazar 2011 - Present</a>
+			&nbsp;|&nbsp;
+			<a href="disclaimer.html"> Disclaimer</a>
+			&nbsp;|&nbsp;
+			<a href="#topOfPage">Top of page</a></p>
+		</div><!--footer-->
 	</div><!--wrapper-->
 	
 	<br>
-	<br>
-	<div id="footer">	
-		<p><a>&copy; Ada Salazar 2011 - Present</a>
-		&nbsp;|&nbsp;
-		<a href="disclaimer.html"> Disclaimer</a>
-		&nbsp;|&nbsp;
-		<a href="#topOfPage">Top of page</a></p>
-	</div><!--footer-->
 </body>
 
 </html> 

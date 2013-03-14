@@ -9,7 +9,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 	<meta http-equiv="Default-Style" content="Main">
-	<title>Gallery - kNewU</title>
+	<title>Chat - kNewU</title>
 	<!--This part does the styles switcher-->
 	<link rel="stylesheet" type="text/css" title="Main" 
 	href="css/main.css">
@@ -19,7 +19,6 @@
 </head>
 
 <body>
-	
 <!-- Places the images on top-->
 
 	<div id="wrapper">
@@ -55,7 +54,7 @@
 		<br>
 		<br>
 		<div id="footer">	
-		<img border="0" src="images/footer.png" alt="footer image">
+		<img border="0" src="../images/footer.png" alt="footer image">
 			<p><a>&copy; Ada Salazar 2011 - Present</a>
 			&nbsp;|&nbsp;
 			<a href="disclaimer.html"> Disclaimer</a>
@@ -63,8 +62,8 @@
 			<a href="#topOfPage">Top of page</a></p>
 		</div><!--footer-->
 	</div><!--wrapper-->
-	
 	<br>
+	
 </body>
 
 </html> 
